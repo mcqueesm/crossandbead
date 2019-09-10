@@ -8,7 +8,7 @@ import Decade from './Decade.js';
 
 export default function Rosary(props) {
   return (
-    <ScrollView>
+    
     <View style={styles.container}>
       <Decade id={50} active={props.active} handlePress={props.handlePress}/>
       <Decade id={39} active={props.active} handlePress={props.handlePress}/>
@@ -27,7 +27,7 @@ export default function Rosary(props) {
       <LargeGap />
       <Cross id={0} active={props.active} handlePress={props.handlePress}/>
     </View>
-    </ScrollView>
+
   );
 }
 
