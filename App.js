@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, Picker  } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Picker, Vibration } from 'react-native';
 import Bead from './components/Bead.js';
 import SmallGap from './components/SmallGap.js';
 import LargeGap from './components/LargeGap.js';
@@ -23,6 +23,7 @@ export default class App extends React.Component {
   }
 
   handlePress(id){
+    Vibration.vibrate(50);
     this.setState({activeBead: id});
     if(id===0) {
       this.setState({
@@ -200,11 +201,10 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     paddingLeft: 20,
     paddingTop: 20,
-    textAlign: 'center'
+    textAlign: 'justify'
   },
   picker: {
-    
-    fontSize: 30,
+    fontSize: 40,
     height: 50,
     width: 175,
     backgroundColor: 'black',
