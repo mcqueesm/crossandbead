@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "expo": "^34.0.1",
+    "expo-blur": "~6.0.0",
     "expo-font": "~6.0.1",
     "expo-react-native-shadow": "^1.0.3",
     "native-base": "^2.13.8",

@@ -1,25 +1,38 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, Picker, Vibration } from 'react-native';
-import Bead from './components/Bead.js';
-import SmallGap from './components/SmallGap.js';
-import LargeGap from './components/LargeGap.js';
-import Cross from './components/Cross.js';
-import Decade from './components/Decade.js';
+import { StyleSheet, Text, View, ScrollView, Vibration, StatusBar } from 'react-native';
+import { AppLoading } from 'expo';
+import {Container, Header, Body, Title} from 'native-base';
+import * as Font from 'expo-font';
+import { Ionicons } from '@expo/vector-icons';
 import Rosary from './components/Rosary.js';
-import prayers from './text/prayers.js';
+import prayers2 from './text/prayers2.js';
 import titles from './text/titles.js';
+import MysteryFab from './components/MysteryFab';
 
 
 export default class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+      isReady: false,
       activeBead: -1,
       text: 'Choose mysteries and click on cross to begin.',
       title: '',
-      mystery: 'glorious'
+      mystery: 'glorious',
+      fabActive: false
     }
     this.handlePress = this.handlePress.bind(this);
+    this.setMystery = this.setMystery.bind(this);
+  }
+
+  async componentDidMount() {
+    StatusBar.setHidden(true);
+    await Font.loadAsync({
+      Roboto: require('native-base/Fonts/Roboto.ttf'),
+      Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
+      ...Ionicons.font,
+    });
+    this.setState({ isReady: true });
   }
 
   handlePress(id){
@@ -27,125 +40,143 @@ export default class App extends React.Component {
     this.setState({activeBead: id});
     if(id===0) {
       this.setState({
-        text: prayers.apostlesCreed,
+        text: prayers2.apostlesCreed,
         title: ''
       });
     }
     else if(id===1) {
       this.setState({
-        text: prayers.ourFather,
+        text: prayers2.ourFather,
         title: ''
       });
     }
     else if(id>=2 && id<5) {
       this.setState({
-        text: prayers.hailMary,
+        text: prayers2.hailMary,
         title: ''
       });
     }
     else if(id===5) {
       this.setState({
-        text: prayers.gloryBe,
+        text: prayers2.gloryBe,
         title: ''
       })
     }
     else if(id===6) {
       this.setState({
-        text: prayers.ourFather + '\n\n' + prayers.hailMary,
+        text: prayers2.ourFather + '\n\n' + prayers2.hailMary,
         title: titles[this.state.mystery][0]
       });
     }
     else if(id>=7&&id<16){
       this.setState({
-        text: prayers.hailMary,
+        text: prayers2.hailMary,
         title: titles[this.state.mystery][0]
       });
     }
     else if(id===16) {
       this.setState({
-        text: prayers.gloryBe + '\n\n\n' + prayers.fatima,
+        text: prayers2.gloryBe + '\n\n\n' + prayers2.fatima,
         title: titles[this.state.mystery][0]
       });
     }
     else if(id===17) {
       this.setState({
-        text: prayers.ourFather + '\n\n' + prayers.hailMary,
+        text: prayers2.ourFather + '\n\n' + prayers2.hailMary,
         title: titles[this.state.mystery][1]
       });
     }
     else if(id>=18&&id<27){
       this.setState({
-        text: prayers.hailMary,
+        text: prayers2.hailMary,
         title: titles[this.state.mystery][1]
       });
     }
     else if(id===27) {
       this.setState({
-        text: prayers.gloryBe + '\n\n\n' + prayers.fatima,
+        text: prayers2.gloryBe + '\n\n\n' + prayers2.fatima,
         title: titles[this.state.mystery][1]
       });
     }
     else if(id===28) {
       this.setState({
-        text: prayers.ourFather + '\n\n' + prayers.hailMary,
+        text: prayers2.ourFather + '\n\n' + prayers2.hailMary,
         title: titles[this.state.mystery][2]
       });
     }
     else if(id>=29&&id<38){
       this.setState({
-        text: prayers.hailMary,
+        text: prayers2.hailMary,
         title: titles[this.state.mystery][2]
       });
     }
     else if(id===38) {
       this.setState({
-        text: prayers.gloryBe + '\n\n\n' + prayers.fatima,
+        text: prayers2.gloryBe + '\n\n\n' + prayers2.fatima,
         title: titles[this.state.mystery][2]
       });
     }
     else if(id===39) {
       this.setState({
-        text: prayers.ourFather + '\n\n' + prayers.hailMary,
+        text: prayers2.ourFather + '\n\n' + prayers2.hailMary,
         title: titles[this.state.mystery][3]
       });
     }
     else if(id>=40&&id<49){
       this.setState({
-        text: prayers.hailMary,
+        text: prayers2.hailMary,
         title: titles[this.state.mystery][3]
       });
     }
     else if(id===49) {
       this.setState({
-        text: prayers.gloryBe + '\n\n\n' + prayers.fatima,
+        text: prayers2.gloryBe + '\n\n\n' + prayers2.fatima,
         title: titles[this.state.mystery][3]
       });
     }
     else if(id===50) {
       this.setState({
-        text: prayers.ourFather + '\n\n' + prayers.hailMary,
+        text: prayers2.ourFather + '\n\n' + prayers2.hailMary,
         title: titles[this.state.mystery][4]
       });
     }
     else if(id>=51&&id<60){
       this.setState({
-        text: prayers.hailMary,
+        text: prayers2.hailMary,
         title: titles[this.state.mystery][4]
       });
     }
     else if(id===60) {
       this.setState({
-        text: prayers.gloryBe + '\n\n\n' + prayers.fatima,
+        text: prayers2.gloryBe + '\n\n\n' + prayers2.fatima,
         title: titles[this.state.mystery][4]
       });
     }
     
   }
+
+  setMystery(mystery){
+    this.setState({mystery}, ()=>{
+      this.handlePress(this.state.activeBead);
+    });
+  }
+
   render() {
+
+    if (!this.state.isReady) {
+      return <AppLoading />;
+    }
+
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>{this.state.title}</Text>
-        <View style={styles.row1}>
+      <Container >
+        
+        <View style={styles.header}>
+          
+            <Text style={{color:'white', fontSize:25, textAlign: 'center'}}>{this.state.title}</Text>
+          
+        </View>
+        
+        <View  style={styles.row1}>
           <View style={styles.textContainer}>
             <ScrollView>
             <Text style={styles.textStyle}>{this.state.text}</Text>
@@ -160,18 +191,24 @@ export default class App extends React.Component {
           </ScrollView>
           
         </View>
-        <Picker
-            selectedValue={this.state.mystery}
-            style={styles.picker}
-            onValueChange={(val, ind)=>{
-              this.setState({mystery: val},()=>this.handlePress(this.state.activeBead))
-            }}>
-            <Picker.Item label=' Glorious Mysteries' value='glorious'/>
-            <Picker.Item label='Luminous Mysteries' value='luminous'/>
-            <Picker.Item label='Sorrowful Mysteries' value='sorrowful'/>
-            <Picker.Item label='   Joyful Mysteries' value='joyful'/>
-        </Picker>
-      </View>
+        
+        <MysteryFab setMystery={this.setMystery}/>
+        
+          {/*<Picker
+              selectedValue={this.state.mystery}
+              style={styles.picker}
+              onValueChange={(val, ind)=>{
+                this.setState({mystery: val},()=>this.handlePress(this.state.activeBead))
+              }}>
+              <Picker.Item label=' Glorious Mysteries' value='glorious'/>
+              <Picker.Item label='Luminous Mysteries' value='luminous'/>
+              <Picker.Item label='Sorrowful Mysteries' value='sorrowful'/>
+              <Picker.Item label='   Joyful Mysteries' value='joyful'/>
+            </Picker>*/}
+          
+          
+       
+      </Container>
     );
     }
 }
@@ -204,18 +241,27 @@ const styles = StyleSheet.create({
     textAlign: 'justify'
   },
   picker: {
-    fontSize: 40,
-    height: 50,
-    width: 175,
+    width:175,
     backgroundColor: 'black',
     color: 'white'
   },
-  title: {
-    flex: 1,
-    width: '100%',
+  header: {
+    alignItems: 'center',
+    backgroundColor: 'black',
     color: 'white',
-    textAlign: 'center',
-    fontSize: 25,
-    paddingTop: 30
+    justifyContent: 'center',
+    paddingTop: 15
+   
+  },
+  footer: {
+    flex:1,
+    alignItems:'center',
+    alignItems:'center',
+    backgroundColor: 'black',
+    color: 'white',
+    height: 50
+    
   }
+  
+  
 });

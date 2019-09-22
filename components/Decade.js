@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, View} from 'react-native';
 import Bead from './Bead.js';
 import SmallGap from './SmallGap.js';
 import LargeGap from './LargeGap.js';

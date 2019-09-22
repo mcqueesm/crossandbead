@@ -6,7 +6,7 @@ Holy Mary, Mother of God,
 pray for us sinners
 now and at the hour of our death.
 Amen.`,
-    apostlesCreed: `I believe in God,
+    apostlesCreed: `I believe in God, 
 the Father almighty,
 Creator of heaven and earth,
 and in Jesus Christ, his only Son, our Lord,
