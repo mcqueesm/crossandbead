@@ -1,20 +1,20 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
 
 
 export default function Cross(props) {
   return (
-    <TouchableHighlight onPress={() => props.handlePress(props.id)}>
-    <View style={styles.container}>
-        <View style={props.id<=props.active ? styles.active : styles.top}></View>
-        <View style={props.id<=props.active ? styles.middleActive : styles.middle}>
-            <View style={props.id<=props.active ? styles.active : styles.middleLeft}></View>
-            <View style={props.id<=props.active ? styles.active : styles.middleCenter}></View>
-            <View style={props.id<=props.active ? styles.active : styles.middleRight}></View>
+    <TouchableWithoutFeedback onPress={() => props.handlePress(props.id)}>
+    <View style={[styles.container]}>
+        <View style={props.id<=props.active ? [styles.active, {borderBottomColor: props.theme.beadActiveColor, backgroundColor: props.theme.beadActiveColor}] : [styles.top, {borderColor: props.theme.rosaryColor}]}></View>
+        <View style={props.id<=props.active ? [styles.middleActive, {backgroundColor: props.theme.beadActiveColor}] : styles.middle}>
+            <View style={props.id<=props.active ? [styles.active, {borderRightColor: props.theme.beadActiveColor, backgroundColor: props.theme.beadActiveColor}] : [styles.middleLeft, {borderColor: props.theme.rosaryColor}]}></View>
+            <View style={props.id<=props.active ? [styles.active, {borderColor: props.theme.beadActiveColor, backgroundColor: props.theme.beadActiveColor}] : [styles.middleCenter, {}]}></View>
+            <View style={props.id<=props.active ? [styles.active, {borderLeftColor: props.theme.beadActiveColor, backgroundColor: props.theme.beadActiveColor}] : [styles.middleRight, {borderColor: props.theme.rosaryColor}]}></View>
         </View>
-        <View style={props.id<=props.active ? styles.activeBottom : styles.bottom}></View>
+        <View style={props.id<=props.active ? [styles.activeBottom, {borderColor: props.theme.rosaryColor, borderTopColor: props.theme.beadActiveColor, backgroundColor: props.theme.beadActiveColor}] : [styles.bottom, {borderColor: props.theme.rosaryColor}]}></View>
     </View>
-    </TouchableHighlight>
+    </TouchableWithoutFeedback>
   );
 }
 
@@ -22,14 +22,12 @@ const styles = StyleSheet.create({
   container: {
     height: 100,
     width: 75,
-    backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
   },
   top: {
     flex:1,
     width: '33.3%',
-    borderColor: 'white',
     borderLeftWidth: 2,
     borderTopWidth: 2,
     borderRightWidth: 2
@@ -44,13 +42,11 @@ const styles = StyleSheet.create({
   middleActive: {
     width: '100%',
     flex: 1,
-    flexDirection: 'row',
-    backgroundColor: 'white'
+    flexDirection: 'row'
   },
   bottom: {
     flex: 2,
     width: '33.3%',
-    borderColor: 'white',
     borderLeftWidth: 2,
     borderRightWidth: 2,
     borderBottomWidth: 2
@@ -58,7 +54,6 @@ const styles = StyleSheet.create({
   },
   middleLeft: {
     width: '33.3%',
-    borderColor: 'white',
     borderLeftWidth: 2,
     borderTopWidth: 2,
     borderBottomWidth: 2
@@ -66,25 +61,20 @@ const styles = StyleSheet.create({
   middleCenter: {
     flex:1,
     width: '33.3%',
-    backgroundColor: 'black'
   },
   middleRight: {
     width: '33.3%',
-    borderColor: 'white',
     borderRightWidth: 2,
     borderTopWidth: 2,
     borderBottomWidth: 2
   },
   active: {
     flex: 1,
-    width: '33.3%',
-    backgroundColor: 'white',
-    borderColor: 'white',
-    borderWidth: 2
+    width: '33.3%'
   },
   activeBottom: {
     flex:2,
-    width: '33.3%',
-    backgroundColor: 'white'
+    width: '33.3%', 
+    borderWidth: 2
   }
 });

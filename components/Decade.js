@@ -14,18 +14,18 @@ export default function Decade(props) {
     const nineBeads = nine.map(id => {
         return (
         <View style={styles.container} key={id}>
-            <Bead id={id} active={props.active} handlePress={props.handlePress}/>
-            <SmallGap />
+            <Bead id={id} active={props.active} handlePress={props.handlePress} theme={props.theme}/>
+            <SmallGap theme={props.theme}/>
         </View>
         )
     });
   return (
     <View style={styles.container}>
-        <Bead id={i+10} active={props.active} handlePress={props.handlePress}/>
-        <LargeGap />
+        <Bead id={i+10} active={props.active} handlePress={props.handlePress} theme={props.theme}/>
+        <LargeGap theme={props.theme}/>
         {nineBeads}
-        <Bead id={i} active={props.active} handlePress={props.handlePress}/>
-        <LargeGap />
+        <Bead id={i} active={props.active} handlePress={props.handlePress} theme={props.theme}/>
+        <LargeGap theme={props.theme}/>
     </View>
   );
 }

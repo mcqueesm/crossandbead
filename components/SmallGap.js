@@ -2,9 +2,9 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 
-export default function SmallGap() {
+export default function SmallGap(props) {
   return (
-    <View style={styles.container}></View>
+    <View style={[styles.container, {backgroundColor: props.theme.rosaryColor}]}></View>
   );
 }
 
@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
   container: {
     height: 10,
     width: 3,
-    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
   },

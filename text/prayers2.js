@@ -1,12 +1,12 @@
 export default prayers = {
-    hailMary: "Hail Mary, full of grace, the Lord is with you; \
+    "Hail Mary": "Hail Mary, full of grace, the Lord is with you; \
 blessed are you among women, \
 and blessed is the fruit of your womb, Jesus. \
 Holy Mary, Mother of God, \
 pray for us sinners \
 now and at the hour of our death. \
 Amen.",
-    apostlesCreed: "I believe in God, \
+    "Apostle's Creed": "I believe in God, \
 the Father almighty, \
 Creator of heaven and earth, \
 and in Jesus Christ, his only Son, our Lord, \
@@ -26,7 +26,7 @@ the forgiveness of sins, \
 the resurrection of the body, \
 and life everlasting. \
 Amen.",
-    ourFather: "Our Father, who art in heaven, \
+    "Our Father": "Our Father, who art in heaven, \
 hallowed be thy name; \
 thy kingdom come; \
 thy will be done on earth as it is in heaven. \
@@ -36,12 +36,12 @@ as we forgive those who trespass \
 against us; \
 and lead us not into temptation, \
 but deliver us from evil. \
-Amen. ",       
-    gloryBe: "Glory be to the Father, the Son, and the Holy Spirit; \
+Amen.",       
+    "Glory Be": "Glory be to the Father, the Son, and the Holy Spirit; \
 as it was in the beginning, is now, and ever shall be, \
 world without end. \
 Amen.", 
-    salveRegina: "Hail, holy Queen, mother of mercy, \
+    "Salve Regina": "Hail, holy Queen, mother of mercy, \
 our life, our sweetness, and our hope. \
 To you we cry, poor banished children of Eve; \
 to you we send up our sighs, \
@@ -51,7 +51,7 @@ your eyes of mercy toward us; \
 and after this, our exile, \
 show unto us the blessed fruit of your womb, Jesus. \
 O clement, O loving, O sweet Virgin Mary.", 
-    endingPrayer: "V. Pray for us, O holy Mother of God. \
+    "Closing Prayer": "V. Pray for us, O holy Mother of God. \
 R. That we may be made worthy of the promises of Christ. \
 Let us pray: O God, whose Only Begotten Son, \
 by his life, Death, and Resurrection, \
@@ -62,7 +62,7 @@ of the most holy Rosary of the Blessed Virgin Mary, \
 we may imitate what they contain \
 and obtain what they promise, \
 through the same Christ our Lord. Amen.", 
-    fatima: "O my Jesus, forgive us our sins, \
+    "Fatima Prayer": "O my Jesus, forgive us our sins, \
 save us from the fires of hell; \
 lead all souls to Heaven, \
 especially those who have most need of your mercy."

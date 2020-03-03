@@ -16,30 +16,30 @@ export default class MysteryFab extends React.Component {
     render(){
     return (
         <Fab 
+            containerStyle={{width: 140, justifyContent: 'flex-end', alignItems: this.props.rightHanded ? 'flex-start' : 'flex-end'}}
             active={this.state.fabActive}
             direction="up"
-            containerStyle={{ }}
-            style={{ backgroundColor: 'black', color: 'white', borderWidth:2, borderColor:'white' }}
-            position="bottomLeft"
+            style={{ backgroundColor: this.props.theme.textBoxColor, color: 'white', borderWidth:2, borderColor:'white' }}
+            position={this.props.rightHanded ? "bottomLeft" : "bottomRight"}
             onPress={() => this.setState({ fabActive: !this.state.fabActive })}>
-            <Icon name="rose" />
-              
+            <Icon style={{color: this.props.theme.fontColor}} name="rose" />
+                
                 <Button onPress={()=>this.setMystery('sorrowful')}
-                    style={this.state.fabActive ? styles.fabActive : styles.fabInactive}>
-                    <Icon name='cloudy-night'/><Text style={styles.buttonText}>Sorrowful</Text>
+                    style={this.state.fabActive ? [styles.fabActive, {backgroundColor: this.props.theme.textBoxColor}] : styles.fabInactive}>
+                    <Icon name='cloudy-night'/><Text style={[styles.buttonText, {color: this.props.theme.fontColor}]}>Sorrowful</Text>
                 </Button>
               
                 <Button onPress={()=>this.setMystery('glorious')}
-                    style={this.state.fabActive ? styles.fabActive : styles.fabInactive}>
-                    <Icon name='sunny'/><Text style={styles.buttonText}>Glorious</Text>
+                    style={this.state.fabActive ? [styles.fabActive, {backgroundColor: this.props.theme.textBoxColor}] : styles.fabInactive}>
+                    <Icon name='sunny'/><Text style={[styles.buttonText, {color: this.props.theme.fontColor}]}>Glorious</Text>
                 </Button>
                 <Button onPress={()=>this.setMystery('joyful')}
-                    style={this.state.fabActive ? styles.fabActive : styles.fabInactive}>
-                    <Icon name='heart-empty'/><Text style={styles.buttonText}>Joyful</Text>
+                    style={this.state.fabActive ? [styles.fabActive, {backgroundColor: this.props.theme.textBoxColor}] : styles.fabInactive}>
+                    <Icon name='heart-empty'/><Text style={[styles.buttonText, {color: this.props.theme.fontColor}]}>Joyful</Text>
                 </Button>
                 <Button onPress={()=>this.setMystery('luminous')}   
-                    style={this.state.fabActive ? styles.fabActive : styles.fabInactive}>
-                    <Icon name='flame'/><Text style={styles.buttonText}>Luminous</Text>
+                    style={this.state.fabActive ? [styles.fabActive, {backgroundColor: this.props.theme.textBoxColor}] : styles.fabInactive}>
+                    <Icon name='flame'/><Text style={[styles.buttonText, {color: this.props.theme.fontColor}]}>Luminous</Text>
               </Button>
               
           </Fab>
@@ -60,7 +60,6 @@ const styles = StyleSheet.create({
         width: 0
       },
       buttonText: {
-        backgroundColor: 'black',
         color: 'white',
         marginLeft: 10
       }
